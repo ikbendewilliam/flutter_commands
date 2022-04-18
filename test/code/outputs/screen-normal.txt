@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:test_project/viewmodel/normal/normal_viewmodel.dart';
+
+class NormalScreen extends StatefulWidget {
+  static const String routeName = RouteNames.normalScreen;
+
+  const NormalScreen({Key? key}) : super(key: key);
+
+  @override
+  NormalScreenState createState() => NormalScreenState();
+}
+
+class NormalScreenState extends State<NormalScreen> implements NormalNavigator {
+  @override
+  Widget build(BuildContext context) {
+    return ProviderWidget<NormalViewModel>(
+      create: () => GetIt.I()..init(this),
+      childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
+    );
+  }
+}
