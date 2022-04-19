@@ -1,4 +1,4 @@
-import 'package:fc/repository/login/login_repository.dart';
+import 'package:fgen/repository/login/login_repository.dart';
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,5 +14,4 @@ class LoginViewModel with ChangeNotifierEx {
   }
 }
 
-mixin LoginNavigator {
-}
+mixin LoginNavigator {}

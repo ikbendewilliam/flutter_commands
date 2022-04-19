@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:fc/util/pubspec_utils.dart';
+import 'package:fgen/util/pubspec_utils.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -11,8 +11,8 @@ void main() {
   });
 
   test('get project name', () {
-    expect(PubspecUtils.getProjectName(PubspecUtils.getPubspecFromFolder(Directory.current.path)), 'fc');
+    expect(PubspecUtils.getProjectName(PubspecUtils.getPubspecFromFolder(Directory.current.path)), 'fgen');
     expect(PubspecUtils.getProjectName(PubspecUtils.getPubspecFromFolder('/test_ackjkhvbafhlglkasdfkhslakdf')), null);
-    expect(PubspecUtils.getProjectName(PubspecUtils.getPubspecFromFolder('${Directory.current.path}/sub/directory/testing')), 'fc');
+    expect(PubspecUtils.getProjectName(PubspecUtils.getPubspecFromFolder('${Directory.current.path}/sub/directory/testing')), 'fgen');
   });
 }

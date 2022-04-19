@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:fc/code/generate_code.dart';
-import 'package:fc/util/string_extension.dart';
+import 'package:fgen/code/generate_code.dart';
+import 'package:fgen/util/string_extension.dart';
 import 'package:test/test.dart';
 
 class CodeGeneratorTestHelper {

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:fc/util/string_extension.dart';
+import 'package:fgen/util/string_extension.dart';
 import 'package:path/path.dart';
 
 class UpdateNavigation {

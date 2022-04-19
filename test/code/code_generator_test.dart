@@ -1,4 +1,4 @@
-import 'package:fc/code/generate_code.dart';
+import 'package:fgen/code/generate_code.dart';
 import 'package:test/test.dart';
 
 import 'code_helper.dart';

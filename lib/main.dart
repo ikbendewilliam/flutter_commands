@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:fc/code/generate_code.dart';
-import 'package:fc/code/navigator.dart';
-import 'package:fc/util/pubspec_utils.dart';
+import 'package:fgen/code/generate_code.dart';
+import 'package:fgen/code/navigator.dart';
+import 'package:fgen/util/pubspec_utils.dart';
 import 'package:path/path.dart';
 
 int generateCode({

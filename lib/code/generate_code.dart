@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:fc/code/code_generator_class.dart';
-import 'package:fc/code/repository.dart';
-import 'package:fc/code/screen.dart';
-import 'package:fc/code/service.dart';
-import 'package:fc/code/viewmodel.dart';
-import 'package:fc/code/webservice.dart';
-import 'package:fc/util/pubspec_utils.dart';
-import 'package:fc/util/string_extension.dart';
+import 'package:fgen/code/code_generator_class.dart';
+import 'package:fgen/code/repository.dart';
+import 'package:fgen/code/screen.dart';
+import 'package:fgen/code/service.dart';
+import 'package:fgen/code/viewmodel.dart';
+import 'package:fgen/code/webservice.dart';
+import 'package:fgen/util/pubspec_utils.dart';
+import 'package:fgen/util/string_extension.dart';
 import 'package:path/path.dart' as path;
 
 enum GenerateType {

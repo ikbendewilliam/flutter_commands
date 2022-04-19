@@ -1,4 +1,4 @@
-import 'package:fc/service/login/login_service.dart';
+import 'package:fgen/service/login/login_service.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton

@@ -1,6 +1,6 @@
-import 'package:fc/code/code_generator_class.dart';
-import 'package:fc/code/generate_code.dart';
-import 'package:fc/util/string_extension.dart';
+import 'package:fgen/code/code_generator_class.dart';
+import 'package:fgen/code/generate_code.dart';
+import 'package:fgen/util/string_extension.dart';
 
 class GenerateRepository extends CodeGeneratorClass {
   @override

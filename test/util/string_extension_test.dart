@@ -1,4 +1,4 @@
-import 'package:fc/util/string_extension.dart';
+import 'package:fgen/util/string_extension.dart';
 import 'package:test/test.dart';
 
 void main() {

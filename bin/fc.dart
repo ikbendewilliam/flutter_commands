@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:fc/code/generate_code.dart';
-import 'package:fc/main.dart';
+import 'package:fgen/code/generate_code.dart';
+import 'package:fgen/main.dart';
 
 const help = 'help';
 const viewmodel = 'viewmodel';

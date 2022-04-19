@@ -3,12 +3,12 @@
 Generate new classes (screen, viewmodel, repository, service) with a single command
 
 ## installation 
-`dart pub global activate fc`
+`dart pub global activate fgen`
 
 ## Options
 
 ```
-fc login -s -v -r -w
+fgen login -s -v -r -w
 ```
 Will generate:
 - (-s) LoginScreen (+ navigator/navigation code)

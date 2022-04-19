@@ -1,5 +1,5 @@
-import 'package:fc/code/code_generator_class.dart';
-import 'package:fc/code/generate_code.dart';
+import 'package:fgen/code/code_generator_class.dart';
+import 'package:fgen/code/generate_code.dart';
 
 class GenerateService extends CodeGeneratorClass {
   @override

@@ -1,4 +1,4 @@
-import 'package:fc/viewmodel/login/login_viewmodel.dart';
+import 'package:fgen/viewmodel/login/login_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
