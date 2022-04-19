@@ -8,7 +8,7 @@ Generate new classes (screen, viewmodel, repository, service) with a single comm
 ## Options
 
 ```
-fgen login -s -v -r -w
+fgen login -svrw
 ```
 Will generate:
 - (-s) LoginScreen (+ navigator/navigation code)
@@ -16,8 +16,9 @@ Will generate:
 - (-r) LoginRepository
 - (-w) LoginService + LoginWebService
 
-# TODO
+All generated files depend when needed on the relevant other generated files. So 
+- Screen -> ViewModel
+- ViewModel -> Repository
+- Repository -> Service
 
-[] Combine multiple generators (s+v+r+s) and they depend on each other
-[] Create new project
-[] Add docs 
+See the example folder to check the generated files

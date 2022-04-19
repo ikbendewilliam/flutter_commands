@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:fgen/webservice/login/login_service.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';

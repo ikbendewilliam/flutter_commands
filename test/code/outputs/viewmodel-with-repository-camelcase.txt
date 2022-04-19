@@ -4,13 +4,13 @@ import 'package:test_project/repository/normal_with_camel_case/normal_with_camel
 
 @injectable
 class NormalWithCamelCaseViewModel with ChangeNotifierEx {
-  late final NormalWithCamelCaseNavigator navigator;
+  late final NormalWithCamelCaseNavigator _navigator;
   final NormalWithCamelCaseRepository _normalWithCamelCaseRepository;
 
   NormalWithCamelCaseViewModel(this._normalWithCamelCaseRepository);
 
-  Future<void> initBase(NormalWithCamelCaseNavigator navigator) async {
-    this.navigator = navigator;
+  Future<void> init(NormalWithCamelCaseNavigator navigator) async {
+    _navigator = navigator;
   }
 }
 

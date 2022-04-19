@@ -19,7 +19,7 @@ class GenerateWebService extends CodeGeneratorClass {
       '''import 'package:dio/dio.dart';''',
       '''import 'package:retrofit/retrofit.dart';''',
       '''import 'package:injectable/injectable.dart';''',
-      if (projectName != null) '''import 'package:$projectName/webservice/${name.toSnakeCase()}/${name.toSnakeCase()}_service.dart''',
+      if (projectName != null) '''import 'package:$projectName/webservice/${name.toSnakeCase()}/${name.toSnakeCase()}_service.dart';''',
     ]..sort();
     return '''${imports.join('\n')}
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/widget/provider/provider_widget.dart';
 
 class NormalWithSnakeCaseScreen extends StatefulWidget {
-  static const String routeName = RouteNames.normalWithSnakeCaseScreen;
+  static const String routeName = 'normal_with_snake_case';
 
   const NormalWithSnakeCaseScreen({Key? key}) : super(key: key);
 

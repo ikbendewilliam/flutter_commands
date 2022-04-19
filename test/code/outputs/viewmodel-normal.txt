@@ -3,12 +3,12 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class NormalViewModel with ChangeNotifierEx {
-  late final NormalNavigator navigator;
+  late final NormalNavigator _navigator;
 
   NormalViewModel();
 
-  Future<void> initBase(NormalNavigator navigator) async {
-    this.navigator = navigator;
+  Future<void> init(NormalNavigator navigator) async {
+    _navigator = navigator;
   }
 }
 

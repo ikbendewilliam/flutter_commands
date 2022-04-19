@@ -4,14 +4,15 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class LoginViewModel with ChangeNotifierEx {
-  late final LoginNavigator navigator;
+  late final LoginNavigator _navigator;
   final LoginRepository _loginRepository;
 
   LoginViewModel(this._loginRepository);
 
   Future<void> init(LoginNavigator navigator) async {
-    this.navigator = navigator;
+    _navigator = navigator;
   }
 }
 
-mixin LoginNavigator {}
+mixin LoginNavigator {
+}

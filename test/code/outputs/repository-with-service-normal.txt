@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:test_project/service/normal/normal_service.dart';
+import 'package:test_project/webservice/normal/normal_service.dart';
 
 @lazySingleton
 abstract class NormalRepository {

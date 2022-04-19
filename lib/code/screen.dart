@@ -25,7 +25,7 @@ class GenerateScreen extends CodeGeneratorClass {
     var result = '''${imports.join('\n')}
 
 class ${name}Screen extends StatefulWidget {
-  static const String routeName = RouteNames.${name.toLowerCamelCase()}Screen;
+  static const String routeName = '${name.toSnakeCase()}';
 
   const ${name}Screen({Key? key}) : super(key: key);
 

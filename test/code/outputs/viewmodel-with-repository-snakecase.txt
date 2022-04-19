@@ -4,13 +4,13 @@ import 'package:test_project/repository/normal_with_snake_case/normal_with_snake
 
 @injectable
 class NormalWithSnakeCaseViewModel with ChangeNotifierEx {
-  late final NormalWithSnakeCaseNavigator navigator;
+  late final NormalWithSnakeCaseNavigator _navigator;
   final NormalWithSnakeCaseRepository _normalWithSnakeCaseRepository;
 
   NormalWithSnakeCaseViewModel(this._normalWithSnakeCaseRepository);
 
-  Future<void> initBase(NormalWithSnakeCaseNavigator navigator) async {
-    this.navigator = navigator;
+  Future<void> init(NormalWithSnakeCaseNavigator navigator) async {
+    _navigator = navigator;
   }
 }
 

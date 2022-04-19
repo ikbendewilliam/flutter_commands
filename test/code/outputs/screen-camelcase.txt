@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/widget/provider/provider_widget.dart';
 
 class NormalWithCamelCaseScreen extends StatefulWidget {
-  static const String routeName = RouteNames.normalWithCamelCaseScreen;
+  static const String routeName = 'normal_with_camel_case';
 
   const NormalWithCamelCaseScreen({Key? key}) : super(key: key);
 

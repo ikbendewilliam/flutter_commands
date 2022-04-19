@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/widget/provider/provider_widget.dart';
 
 class NormalScreen extends StatefulWidget {
-  static const String routeName = RouteNames.normalScreen;
+  static const String routeName = 'normal';
 
   const NormalScreen({Key? key}) : super(key: key);
 

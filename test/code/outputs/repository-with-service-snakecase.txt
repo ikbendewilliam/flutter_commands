@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:test_project/service/normal_with_snake_case/normal_with_snake_case_service.dart';
+import 'package:test_project/webservice/normal_with_snake_case/normal_with_snake_case_service.dart';
 
 @lazySingleton
 abstract class NormalWithSnakeCaseRepository {

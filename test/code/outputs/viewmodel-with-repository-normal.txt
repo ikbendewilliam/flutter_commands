@@ -4,13 +4,13 @@ import 'package:test_project/repository/normal/normal_repository.dart';
 
 @injectable
 class NormalViewModel with ChangeNotifierEx {
-  late final NormalNavigator navigator;
+  late final NormalNavigator _navigator;
   final NormalRepository _normalRepository;
 
   NormalViewModel(this._normalRepository);
 
-  Future<void> initBase(NormalNavigator navigator) async {
-    this.navigator = navigator;
+  Future<void> init(NormalNavigator navigator) async {
+    _navigator = navigator;
   }
 }
 

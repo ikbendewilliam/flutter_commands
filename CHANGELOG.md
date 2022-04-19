@@ -1,4 +1,4 @@
-## 0.0.1+3 - 19/04/22
+## 0.0.1+4 - 19/04/22
 
 - Run as executable
 - Fix issue with yaml
