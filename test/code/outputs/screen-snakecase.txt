@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:test_project/viewmodel/normal_with_snake_case/normal_with_snake_case_viewmodel.dart';
 
 class NormalWithSnakeCaseScreen extends StatefulWidget {
   static const String routeName = RouteNames.normalWithSnakeCaseScreen;
@@ -11,12 +9,9 @@ class NormalWithSnakeCaseScreen extends StatefulWidget {
   NormalWithSnakeCaseScreenState createState() => NormalWithSnakeCaseScreenState();
 }
 
-class NormalWithSnakeCaseScreenState extends State<NormalWithSnakeCaseScreen> implements NormalWithSnakeCaseNavigator {
+class NormalWithSnakeCaseScreenState extends State<NormalWithSnakeCaseScreen> {
   @override
   Widget build(BuildContext context) {
-    return ProviderWidget<NormalWithSnakeCaseViewModel>(
-      create: () => GetIt.I()..init(this),
-      childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
-    );
+    return Container();
   }
 }

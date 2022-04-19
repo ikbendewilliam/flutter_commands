@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:test_project/viewmodel/normal_with_camel_case/normal_with_camel_case_viewmodel.dart';
 
 class NormalWithCamelCaseScreen extends StatefulWidget {
   static const String routeName = RouteNames.normalWithCamelCaseScreen;
@@ -11,12 +9,9 @@ class NormalWithCamelCaseScreen extends StatefulWidget {
   NormalWithCamelCaseScreenState createState() => NormalWithCamelCaseScreenState();
 }
 
-class NormalWithCamelCaseScreenState extends State<NormalWithCamelCaseScreen> implements NormalWithCamelCaseNavigator {
+class NormalWithCamelCaseScreenState extends State<NormalWithCamelCaseScreen> {
   @override
   Widget build(BuildContext context) {
-    return ProviderWidget<NormalWithCamelCaseViewModel>(
-      create: () => GetIt.I()..init(this),
-      childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
-    );
+    return Container();
   }
 }

@@ -1,0 +1,14 @@
+import 'package:injectable/injectable.dart';
+import 'package:test_project/service/normal_with_camel_case/normal_with_camel_case_service.dart';
+
+@lazySingleton
+abstract class NormalWithCamelCaseRepository {
+  @factoryMethod
+  factory NormalWithCamelCaseRepository(NormalWithCamelCaseService normalWithCamelCaseService) = _NormalWithCamelCaseRepository;
+}
+
+class _NormalWithCamelCaseRepository implements NormalWithCamelCaseRepository {
+  final NormalWithCamelCaseService _normalWithCamelCaseService;
+
+  _NormalWithCamelCaseRepository(this._normalWithCamelCaseService);
+}

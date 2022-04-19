@@ -1,0 +1,12 @@
+import 'package:test_project/webservice/normal_with_snake_case/normal_with_snake_case_service.dart';
+import 'package:injectable/injectable.dart';
+import 'package:retrofit/retrofit.dart';
+
+part 'normal_with_snake_case_webservice.g.dart';
+
+@LazySingleton(as: NormalWithSnakeCaseService)
+@RestApi()
+abstract class NormalWithSnakeCaseWebService extends NormalWithSnakeCaseService {
+  @factoryMethod
+  factory NormalWithSnakeCaseWebService(Dio dio) = _NormalWithSnakeCaseWebService;
+}

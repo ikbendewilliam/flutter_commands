@@ -1,0 +1,14 @@
+import 'package:injectable/injectable.dart';
+import 'package:test_project/service/normal/normal_service.dart';
+
+@lazySingleton
+abstract class NormalRepository {
+  @factoryMethod
+  factory NormalRepository(NormalService normalService) = _NormalRepository;
+}
+
+class _NormalRepository implements NormalRepository {
+  final NormalService _normalService;
+
+  _NormalRepository(this._normalService);
+}

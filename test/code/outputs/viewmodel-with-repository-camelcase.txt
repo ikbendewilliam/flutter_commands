@@ -1,11 +1,13 @@
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
+import 'package:test_project/repository/normal_with_camel_case/normal_with_camel_case_repository.dart';
 
 @injectable
 class NormalWithCamelCaseViewModel with ChangeNotifierEx {
   late final NormalWithCamelCaseNavigator navigator;
+  final NormalWithCamelCaseRepository _normalWithCamelCaseRepository;
 
-  NormalWithCamelCaseViewModel();
+  NormalWithCamelCaseViewModel(this._normalWithCamelCaseRepository);
 
   Future<void> initBase(NormalWithCamelCaseNavigator navigator) async {
     this.navigator = navigator;

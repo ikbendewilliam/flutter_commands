@@ -15,12 +15,13 @@ class GenerateScreen extends CodeGeneratorClass {
     String? projectName,
     Set<GenerateType>? allGeneratedTypes,
   }) {
+    final withViewModel = allGeneratedTypes?.contains(GenerateType.viewmodel) == true;
     final imports = [
       '''import 'package:flutter/material.dart';''',
-      '''import 'package:get_it/get_it.dart';''',
-      if (projectName != null) '''import 'package:$projectName/viewmodel/${name.toSnakeCase()}/${name.toSnakeCase()}_viewmodel.dart';''',
+      if (withViewModel) '''import 'package:get_it/get_it.dart';''',
+      if (projectName != null && withViewModel) '''import 'package:$projectName/viewmodel/${name.toSnakeCase()}/${name.toSnakeCase()}_viewmodel.dart';''',
     ]..sort();
-    return '''${imports.join('\n')}
+    var result = '''${imports.join('\n')}
 
 class ${name}Screen extends StatefulWidget {
   static const String routeName = RouteNames.${name.toLowerCamelCase()}Screen;
@@ -31,15 +32,24 @@ class ${name}Screen extends StatefulWidget {
   ${name}ScreenState createState() => ${name}ScreenState();
 }
 
-class ${name}ScreenState extends State<${name}Screen> implements ${name}Navigator {
+class ${name}ScreenState extends State<${name}Screen> ${withViewModel ? 'implements ${name}Navigator ' : ''}{
   @override
   Widget build(BuildContext context) {
-    return ProviderWidget<${name}ViewModel>(
+    return ''';
+    if (withViewModel) {
+      result += '''ProviderWidget<${name}ViewModel>(
       create: () => GetIt.I()..init(this),
-      childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
-    );
+      childBuilderWithViewModel: (context, viewModel, theme, localization) => ''';
+    }
+    result += 'Container()';
+    if (withViewModel) {
+      result += ''',
+    )''';
+    }
+    result += ''';
   }
 }
 ''';
+    return result;
   }
 }

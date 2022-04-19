@@ -1,0 +1,14 @@
+import 'package:injectable/injectable.dart';
+import 'package:test_project/service/normal_with_snake_case/normal_with_snake_case_service.dart';
+
+@lazySingleton
+abstract class NormalWithSnakeCaseRepository {
+  @factoryMethod
+  factory NormalWithSnakeCaseRepository(NormalWithSnakeCaseService normalWithSnakeCaseService) = _NormalWithSnakeCaseRepository;
+}
+
+class _NormalWithSnakeCaseRepository implements NormalWithSnakeCaseRepository {
+  final NormalWithSnakeCaseService _normalWithSnakeCaseService;
+
+  _NormalWithSnakeCaseRepository(this._normalWithSnakeCaseService);
+}

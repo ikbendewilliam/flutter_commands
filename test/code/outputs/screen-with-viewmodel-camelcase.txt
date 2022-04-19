@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:test_project/viewmodel/normal_with_camel_case/normal_with_camel_case_viewmodel.dart';
+
+class NormalWithCamelCaseScreen extends StatefulWidget {
+  static const String routeName = RouteNames.normalWithCamelCaseScreen;
+
+  const NormalWithCamelCaseScreen({Key? key}) : super(key: key);
+
+  @override
+  NormalWithCamelCaseScreenState createState() => NormalWithCamelCaseScreenState();
+}
+
+class NormalWithCamelCaseScreenState extends State<NormalWithCamelCaseScreen> implements NormalWithCamelCaseNavigator {
+  @override
+  Widget build(BuildContext context) {
+    return ProviderWidget<NormalWithCamelCaseViewModel>(
+      create: () => GetIt.I()..init(this),
+      childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
+    );
+  }
+}

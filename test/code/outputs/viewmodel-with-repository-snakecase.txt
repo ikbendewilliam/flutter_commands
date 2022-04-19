@@ -1,11 +1,13 @@
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
+import 'package:test_project/repository/normal_with_snake_case/normal_with_snake_case_repository.dart';
 
 @injectable
 class NormalWithSnakeCaseViewModel with ChangeNotifierEx {
   late final NormalWithSnakeCaseNavigator navigator;
+  final NormalWithSnakeCaseRepository _normalWithSnakeCaseRepository;
 
-  NormalWithSnakeCaseViewModel();
+  NormalWithSnakeCaseViewModel(this._normalWithSnakeCaseRepository);
 
   Future<void> initBase(NormalWithSnakeCaseNavigator navigator) async {
     this.navigator = navigator;
