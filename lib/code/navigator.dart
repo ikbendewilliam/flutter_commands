@@ -27,6 +27,7 @@ class UpdateNavigation {
       }
     }
     mainNavigationFile.writeAsStringSync(sb.toString());
+    print('Added navigation logic to `${mainNavigationFile.path}`.');
   }
 
   static void writeNavigator({
@@ -50,18 +51,18 @@ class UpdateNavigation {
         imported = true;
       }
       sb.writeln(line);
-      if (line == '  void goBack<T>({T? result});') {
+      if (line == '  void goBack<T>({T? result}) => _navigator.pop(result);') {
         sb
           ..writeln()
           ..writeln('  @override')
           ..writeln('  void goTo$name() => _navigator.pushReplacementNamed(${name}Screen.routeName);');
       } else if (line == '        return MaterialPageRoute<void>(builder: (context) => FlavorBanner(child: Container(color: Colors.grey)), settings: settings);') {
         sb
-          ..writeln()
           ..writeln('      case ${name}Screen.routeName:')
           ..writeln('        return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: ${name}Screen()), settings: settings);');
       }
     }
     mainNavigatorFile.writeAsStringSync(sb.toString());
+    print('Added navigator logic to `${mainNavigatorFile.path}`.');
   }
 }

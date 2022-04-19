@@ -9,7 +9,7 @@ class LoginViewModel with ChangeNotifierEx {
 
   LoginViewModel(this._loginRepository);
 
-  Future<void> initBase(LoginNavigator navigator) async {
+  Future<void> init(LoginNavigator navigator) async {
     this.navigator = navigator;
   }
 }

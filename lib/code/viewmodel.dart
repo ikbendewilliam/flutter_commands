@@ -25,7 +25,7 @@ class GenerateViewmodel extends CodeGeneratorClass {
 
 @injectable
 class ${name}ViewModel with ChangeNotifierEx {
-  late final ${name}Navigator navigator;
+  late final ${name}Navigator _navigator;
 ''';
     if (withRepository) {
       result += '''
@@ -36,8 +36,8 @@ class ${name}ViewModel with ChangeNotifierEx {
 
   ${name}ViewModel(${withRepository ? 'this._${name.toLowerCamelCase()}Repository' : ''});
 
-  Future<void> initBase(${name}Navigator navigator) async {
-    this.navigator = navigator;
+  Future<void> init(${name}Navigator navigator) async {
+    _navigator = navigator;
   }
 }
 

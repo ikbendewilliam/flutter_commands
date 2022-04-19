@@ -18,7 +18,7 @@ class GenerateRepository extends CodeGeneratorClass {
     final withService = allGeneratedTypes?.contains(GenerateType.service) == true;
     final imports = [
       '''import 'package:injectable/injectable.dart';''',
-      if (projectName != null && withService) '''import 'package:$projectName/service/${name.toSnakeCase()}/${name.toSnakeCase()}_service.dart';''',
+      if (projectName != null && withService) '''import 'package:$projectName/webservice/${name.toSnakeCase()}/${name.toSnakeCase()}_service.dart';''',
     ]..sort();
     var result = '''${imports.join('\n')}
 

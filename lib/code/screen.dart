@@ -18,6 +18,7 @@ class GenerateScreen extends CodeGeneratorClass {
     final withViewModel = allGeneratedTypes?.contains(GenerateType.viewmodel) == true;
     final imports = [
       '''import 'package:flutter/material.dart';''',
+      if (projectName != null) '''import 'package:$projectName/widget/provider/provider_widget.dart';''',
       if (withViewModel) '''import 'package:get_it/get_it.dart';''',
       if (projectName != null && withViewModel) '''import 'package:$projectName/viewmodel/${name.toSnakeCase()}/${name.toSnakeCase()}_viewmodel.dart';''',
     ]..sort();
