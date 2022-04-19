@@ -1,6 +1,6 @@
 name: fgen
 description: A command-line application to generate screens, viewmodels and repositories in the Flutter icapps template
-version: 0.0.1
+version: 0.0.1+2
 homepage: https://github.com/ikbendewilliam/flutter_commands
 
 environment:

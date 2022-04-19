@@ -20,7 +20,7 @@ class PubspecUtils {
     final file = File(pubspec);
     if (!file.existsSync()) return null;
     final content = file.readAsStringSync();
-    final yaml = loadYaml(content) as Map<String, dynamic>;
+    final dynamic yaml = loadYaml(content);
     return yaml['name'] as String?;
   }
 }
