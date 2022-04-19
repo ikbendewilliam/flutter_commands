@@ -6,6 +6,9 @@ homepage: https://github.com/ikbendewilliam/flutter_commands
 environment:
   sdk: '>=2.16.1 <3.0.0'
 
+executables:
+  fgen:
+
 dependencies: 
   args: ^2.3.0
   path: ^1.8.1
