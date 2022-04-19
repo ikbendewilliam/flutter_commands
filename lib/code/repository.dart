@@ -1,8 +1,10 @@
-import 'package:flutter_commands/code/code_generator_class.dart';
+import 'package:fc/code/code_generator_class.dart';
+import 'package:fc/code/generate_code.dart';
 
 class GenerateRepository extends CodeGeneratorClass {
   @override
   String get folder => 'repository';
+
   @override
   String get fileSuffix => '_repository';
 
@@ -10,6 +12,7 @@ class GenerateRepository extends CodeGeneratorClass {
   String generate({
     required String name,
     String? projectName,
+    Set<GenerateType>? allGeneratedTypes,
   }) {
     return '''import 'package:injectable/injectable.dart';
 

@@ -1,32 +1,39 @@
-import 'dart:convert';
 import 'dart:io';
 
-Future<void> dcat(List<String> paths, {bool showLineNumbers = false}) async {
-  if (paths.isEmpty) {
-    // No files provided as arguments. Read from stdin and print each line.
-    await stdin.pipe(stdout);
-  } else {
-    for (final path in paths) {
-      var lineNumber = 1;
-      final lines = utf8.decoder.bind(File(path).openRead()).transform(const LineSplitter());
-      try {
-        await for (final line in lines) {
-          if (showLineNumbers) {
-            stdout.write('${lineNumber++} ');
-          }
-          stdout.writeln(line);
-        }
-      } catch (_) {
-        await _handleError(path);
-      }
+import 'package:fc/code/generate_code.dart';
+import 'package:fc/code/navigator.dart';
+import 'package:fc/util/pubspec_utils.dart';
+import 'package:path/path.dart';
+
+int generateCode({
+  required String name,
+  required Set<GenerateType> types,
+}) {
+  if (name.isEmpty) {
+    print('Name cannot be empty');
+    return -1;
+  }
+  if (types.isEmpty) {
+    print('No code to generate');
+    return -1;
+  }
+  final pubspec = PubspecUtils.getPubspecFromFolder(Directory.current.path);
+  final projectName = PubspecUtils.getProjectName(pubspec);
+  for (var type in types) {
+    GenerateCode.write(type, name, pubspec, types);
+    if (type == GenerateType.screen && pubspec != null && projectName != null) {
+      final path = dirname(pubspec);
+      UpdateNavigation.writeNavigation(
+        name: name,
+        projectName: projectName,
+        path: path,
+      );
+      UpdateNavigation.writeNavigator(
+        name: name,
+        projectName: projectName,
+        path: path,
+      );
     }
   }
-}
-
-Future<void> _handleError(String path) async {
-  if (await FileSystemEntity.isDirectory(path)) {
-    stderr.writeln('error: $path is a directory');
-  } else {
-    exitCode = 2;
-  }
+  return 0;
 }

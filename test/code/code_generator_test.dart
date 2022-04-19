@@ -1,4 +1,4 @@
-import 'package:flutter_commands/code/generate_code.dart';
+import 'package:fc/code/generate_code.dart';
 import 'package:test/test.dart';
 
 import 'code_helper.dart';

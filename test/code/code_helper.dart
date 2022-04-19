@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:flutter_commands/code/generate_code.dart';
-import 'package:flutter_commands/util/string_extension.dart';
+import 'package:fc/code/generate_code.dart';
+import 'package:fc/util/string_extension.dart';
 import 'package:test/test.dart';
 
 class CodeGeneratorTestHelper {

@@ -1,9 +1,11 @@
-import 'package:flutter_commands/code/code_generator_class.dart';
-import 'package:flutter_commands/util/string_extension.dart';
+import 'package:fc/code/code_generator_class.dart';
+import 'package:fc/code/generate_code.dart';
+import 'package:fc/util/string_extension.dart';
 
 class GenerateScreen extends CodeGeneratorClass {
   @override
   String get folder => 'screen';
+
   @override
   String get fileSuffix => '_screen';
 
@@ -11,6 +13,7 @@ class GenerateScreen extends CodeGeneratorClass {
   String generate({
     required String name,
     String? projectName,
+    Set<GenerateType>? allGeneratedTypes,
   }) {
     final imports = [
       '''import 'package:flutter/material.dart';''',
