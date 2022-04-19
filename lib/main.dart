@@ -19,7 +19,7 @@ int generateCode({
   }
   final pubspec = PubspecUtils.getPubspecFromFolder(Directory.current.path);
   final projectName = PubspecUtils.getProjectName(pubspec);
-  for (var type in types) {
+  for (final type in types) {
     GenerateCode.write(type, name, pubspec, types);
     if (type == GenerateType.screen && pubspec != null && projectName != null) {
       final path = dirname(pubspec);

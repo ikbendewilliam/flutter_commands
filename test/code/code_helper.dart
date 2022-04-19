@@ -5,7 +5,7 @@ import 'package:fc/util/string_extension.dart';
 import 'package:test/test.dart';
 
 class CodeGeneratorTestHelper {
-  static testCodeGenerator(GenerateType type, String name, String resultFileName, {bool overwriteOutputFiles = false, List<GenerateType> additionalTypes = const []}) {
+  static void testCodeGenerator(GenerateType type, String name, String resultFileName, {bool overwriteOutputFiles = false, List<GenerateType> additionalTypes = const []}) {
     final file = File('test/code/outputs/$resultFileName.txt');
     final actual = GenerateCode.getGenerator(type).generate(
       name: name.toCamelCase(),
