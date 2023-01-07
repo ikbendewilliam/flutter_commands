@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:fgen/code/generate_code.dart';
 import 'package:fgen/main.dart';
+import 'package:fgen/src/code/generate_code.dart';
 
 const help = 'help';
 const viewmodel = 'viewmodel';
@@ -10,14 +10,22 @@ const screen = 'screen';
 const repository = 'repository';
 const service = 'service';
 
+/// Generate code for a given name
 void main(List<String> arguments) {
   exitCode = 0; // presume success
   final parser = ArgParser()
     ..addFlag(help, negatable: false, abbr: 'h', help: 'Print this help')
-    ..addFlag(viewmodel, negatable: false, abbr: 'v', help: 'Generate viewmodel')
-    ..addFlag(screen, negatable: false, abbr: 's', help: 'Generate screen, if viewmodel is generated, will add ProviderWidget')
-    ..addFlag(repository, negatable: false, abbr: 'r', help: 'Generate repository')
-    ..addFlag(service, negatable: false, abbr: 'w', help: 'Generate service and webservice');
+    ..addFlag(viewmodel,
+        negatable: false, abbr: 'v', help: 'Generate viewmodel')
+    ..addFlag(screen,
+        negatable: false,
+        abbr: 's',
+        help:
+            'Generate screen, if viewmodel is generated, will add ProviderWidget')
+    ..addFlag(repository,
+        negatable: false, abbr: 'r', help: 'Generate repository')
+    ..addFlag(service,
+        negatable: false, abbr: 'w', help: 'Generate service and webservice');
 
   final argResults = parser.parse(arguments);
   if (argResults.wasParsed(help)) {
@@ -39,6 +47,9 @@ void main(List<String> arguments) {
     repository: [GenerateType.repository],
     service: [GenerateType.service, GenerateType.webService],
   };
-  final types = allTypes.entries.where((element) => argResults.wasParsed(element.key)).expand((element) => element.value).toSet();
+  final types = allTypes.entries
+      .where((element) => argResults.wasParsed(element.key))
+      .expand((element) => element.value)
+      .toSet();
   exitCode = generateCode(name: name, types: types);
 }

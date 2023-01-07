@@ -22,3 +22,7 @@ All generated files depend when needed on the relevant other generated files. So
 - Repository -> Service
 
 See the example folder to check the generated files
+
+## Code
+
+The code generated is compatible and based on the icapps template code. See [flutter-template](https://github.com/icapps/flutter-template) for the latest state.

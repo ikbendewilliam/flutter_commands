@@ -1,11 +1,9 @@
 import 'dart:io';
 
-import 'package:fgen/code/generate_code.dart';
-import 'package:fgen/code/navigator.dart';
-import 'package:fgen/util/pubspec_utils.dart';
-import 'package:fgen/util/string_extension.dart';
-import 'package:path/path.dart';
+import 'package:fgen/src/code/generate_code.dart';
+import 'package:fgen/src/util/pubspec_utils.dart';
 
+/// Generate code for a given name, returns 0 if successful, -1 if not
 int generateCode({
   required String name,
   required Set<GenerateType> types,
@@ -19,22 +17,8 @@ int generateCode({
     return -1;
   }
   final pubspec = PubspecUtils.getPubspecFromFolder(Directory.current.path);
-  final projectName = PubspecUtils.getProjectName(pubspec);
   for (final type in types) {
     GenerateCode.write(type, name, pubspec, types);
-    if (type == GenerateType.screen && pubspec != null && projectName != null) {
-      final path = dirname(pubspec);
-      UpdateNavigation.writeNavigation(
-        name: name.toCamelCase(),
-        projectName: projectName,
-        path: path,
-      );
-      UpdateNavigation.writeNavigator(
-        name: name.toCamelCase(),
-        projectName: projectName,
-        path: path,
-      );
-    }
   }
   return 0;
 }
