@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:fgen/main.dart';
+import 'package:fgen/fgen.dart';
 import 'package:fgen/src/code/generate_code.dart';
 
 const help = 'help';
