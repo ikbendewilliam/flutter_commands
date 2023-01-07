@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_x_navigation_generator_interface/get_x_navigation_generator_interface.dart';
 import 'package:test_project/widget/provider/provider_widget.dart';
 
+@getXRoute
 class NormalScreen extends StatefulWidget {
-  static const String routeName = 'normal';
 
-  const NormalScreen({Key? key}) : super(key: key);
+  const NormalScreen({super.key});
 
   @override
   NormalScreenState createState() => NormalScreenState();

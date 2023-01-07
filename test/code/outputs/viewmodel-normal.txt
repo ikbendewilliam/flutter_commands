@@ -1,16 +1,13 @@
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
+import 'package:test_project/navigator/main_navigator.dart';
 
 @injectable
 class NormalViewModel with ChangeNotifierEx {
-  late final NormalNavigator _navigator;
+  final MainNavigator _navigator;
 
-  NormalViewModel();
+  NormalViewModel(this._navigator);
 
-  Future<void> init(NormalNavigator navigator) async {
-    _navigator = navigator;
+  Future<void> init() async {
   }
-}
-
-mixin NormalNavigator {
 }

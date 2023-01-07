@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:get_x_navigation_generator_interface/get_x_navigation_generator_interface.dart';
 import 'package:test_project/viewmodel/normal_with_snake_case/normal_with_snake_case_viewmodel.dart';
 import 'package:test_project/widget/provider/provider_widget.dart';
 
+@getXRoute
 class NormalWithSnakeCaseScreen extends StatefulWidget {
-  static const String routeName = 'normal_with_snake_case';
 
-  const NormalWithSnakeCaseScreen({Key? key}) : super(key: key);
+  const NormalWithSnakeCaseScreen({super.key});
 
   @override
   NormalWithSnakeCaseScreenState createState() => NormalWithSnakeCaseScreenState();
 }
 
-class NormalWithSnakeCaseScreenState extends State<NormalWithSnakeCaseScreen> implements NormalWithSnakeCaseNavigator {
+class NormalWithSnakeCaseScreenState extends State<NormalWithSnakeCaseScreen> {
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<NormalWithSnakeCaseViewModel>(
-      create: () => GetIt.I()..init(this),
+      create: () => GetIt.I()..init(),
       childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
     );
   }

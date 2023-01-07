@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_x_navigation_generator_interface/get_x_navigation_generator_interface.dart';
 import 'package:test_project/widget/provider/provider_widget.dart';
 
+@getXRoute
 class NormalWithSnakeCaseScreen extends StatefulWidget {
-  static const String routeName = 'normal_with_snake_case';
 
-  const NormalWithSnakeCaseScreen({Key? key}) : super(key: key);
+  const NormalWithSnakeCaseScreen({super.key});
 
   @override
   NormalWithSnakeCaseScreenState createState() => NormalWithSnakeCaseScreenState();

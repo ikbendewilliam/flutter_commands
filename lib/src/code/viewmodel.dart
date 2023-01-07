@@ -37,7 +37,7 @@ class ${name}ViewModel with ChangeNotifierEx {
     }
     result += '''
 
-  ${name}ViewModel(this._navigator, ${withRepository ? 'this._${name.toLowerCamelCase()}Repository' : ''});
+  ${name}ViewModel(this._navigator${withRepository ? ', this._${name.toLowerCamelCase()}Repository' : ''});
 
   Future<void> init() async {
   }

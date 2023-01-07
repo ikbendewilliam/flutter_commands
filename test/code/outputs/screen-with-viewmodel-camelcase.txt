@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:get_x_navigation_generator_interface/get_x_navigation_generator_interface.dart';
 import 'package:test_project/viewmodel/normal_with_camel_case/normal_with_camel_case_viewmodel.dart';
 import 'package:test_project/widget/provider/provider_widget.dart';
 
+@getXRoute
 class NormalWithCamelCaseScreen extends StatefulWidget {
-  static const String routeName = 'normal_with_camel_case';
 
-  const NormalWithCamelCaseScreen({Key? key}) : super(key: key);
+  const NormalWithCamelCaseScreen({super.key});
 
   @override
   NormalWithCamelCaseScreenState createState() => NormalWithCamelCaseScreenState();
 }
 
-class NormalWithCamelCaseScreenState extends State<NormalWithCamelCaseScreen> implements NormalWithCamelCaseNavigator {
+class NormalWithCamelCaseScreenState extends State<NormalWithCamelCaseScreen> {
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<NormalWithCamelCaseViewModel>(
-      create: () => GetIt.I()..init(this),
+      create: () => GetIt.I()..init(),
       childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
     );
   }

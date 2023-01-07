@@ -5,7 +5,7 @@ import 'code_helper.dart';
 
 void main() {
   const overwriteOutputFiles =
-      true; // WARNING: This will update the output files with the new generated code.
+      false; // WARNING: This will update the output files with the new generated code.
 
   group('Code generator', () {
     setUpAll(() {

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_x_navigation_generator_interface/get_x_navigation_generator_interface.dart';
 import 'package:test_project/widget/provider/provider_widget.dart';
 
+@getXRoute
 class NormalWithCamelCaseScreen extends StatefulWidget {
-  static const String routeName = 'normal_with_camel_case';
 
-  const NormalWithCamelCaseScreen({Key? key}) : super(key: key);
+  const NormalWithCamelCaseScreen({super.key});
 
   @override
   NormalWithCamelCaseScreenState createState() => NormalWithCamelCaseScreenState();
