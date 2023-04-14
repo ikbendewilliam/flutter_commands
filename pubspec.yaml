@@ -1,6 +1,6 @@
 name: fgen
 description: Generate screens, viewmodels, repositories and services for/in the Flutter icapps template
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/ikbendewilliam/flutter_commands
 
 environment:

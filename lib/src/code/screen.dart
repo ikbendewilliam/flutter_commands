@@ -19,12 +19,14 @@ class GenerateScreen extends CodeGeneratorClass {
         allGeneratedTypes?.contains(GenerateType.viewmodel) == true;
     final imports = [
       "import 'package:flutter/material.dart';",
-      "import 'package:get_x_navigation_generator_interface/get_x_navigation_generator_interface.dart';",
-      if (projectName != null)
+      "import 'package:get_x_navigation_generator_annotations/get_x_navigation_generator_annotations.dart';",
+      if (projectName != null) ...[
         "import 'package:$projectName/widget/provider/provider_widget.dart';",
-      if (withViewModel) "import 'package:get_it/get_it.dart';",
-      if (projectName != null && withViewModel)
-        "import 'package:$projectName/viewmodel/${name.toSnakeCase()}/${name.toSnakeCase()}_viewmodel.dart';",
+        if (withViewModel) ...[
+          "import 'package:$projectName/di/injectable.dart';",
+          "import 'package:$projectName/viewmodel/${name.toSnakeCase()}/${name.toSnakeCase()}_viewmodel.dart';",
+        ],
+      ],
     ]..sort();
     var result = '''${imports.join('\n')}
 
@@ -43,7 +45,7 @@ class ${name}ScreenState extends State<${name}Screen> {
     return ''';
     if (withViewModel) {
       result += '''ProviderWidget<${name}ViewModel>(
-      create: () => GetIt.I()..init(),
+      create: () => getIt()..init(),
       childBuilderWithViewModel: (context, viewModel, theme, localization) => ''';
     }
     result += 'Container()';
