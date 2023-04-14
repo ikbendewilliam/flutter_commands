@@ -1,3 +1,8 @@
+## 0.0.3 - 2023/04/14
+
+- Replaced GetIt.I with getIt
+- Fix package name for get_x_navigation_generator_annotations
+
 ## 0.0.2 - 2023/01/07
 
 - Updated to use MainNavigator as singleton
