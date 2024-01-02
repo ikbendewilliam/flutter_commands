@@ -1,0 +1,13 @@
+screen:
+  folder: screen
+  template_files:
+    - screen.dart: _screen
+  abbr: s
+  help: Generate a screen with baseScreen, if viewmodel is generated, will add ProviderWidget
+
+dialog:
+  folder: screen
+  template_files:
+    - dialog.dart: _dialog
+  abbr: d
+  help: Generate a dialog, if viewmodel is generated, will add ProviderWidget

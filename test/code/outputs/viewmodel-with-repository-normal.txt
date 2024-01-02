@@ -8,8 +8,10 @@ class NormalViewModel with ChangeNotifierEx {
   final MainNavigator _navigator;
   final NormalRepository _normalRepository;
 
-  NormalViewModel(this._navigator, this._normalRepository);
+  NormalViewModel(
+    this._navigator,
+    this._normalRepository,
+  );
 
-  Future<void> init() async {
-  }
+  Future<void> init() async {}
 }

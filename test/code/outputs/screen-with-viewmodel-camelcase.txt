@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get_x_navigation_generator_annotations/get_x_navigation_generator_annotations.dart';
+import 'package:flutter_navigation_generator_annotations/flutter_navigation_generator_annotations.dart';
 import 'package:test_project/di/injectable.dart';
 import 'package:test_project/viewmodel/normal_with_camel_case/normal_with_camel_case_viewmodel.dart';
 import 'package:test_project/widget/provider/provider_widget.dart';
 
-@getXRoute
+@flutterRoute
 class NormalWithCamelCaseScreen extends StatefulWidget {
-
   const NormalWithCamelCaseScreen({super.key});
 
   @override
@@ -18,7 +17,8 @@ class NormalWithCamelCaseScreenState extends State<NormalWithCamelCaseScreen> {
   Widget build(BuildContext context) {
     return ProviderWidget<NormalWithCamelCaseViewModel>(
       create: () => getIt()..init(),
-      childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
+      childBuilderWithViewModel: (context, viewModel, theme, localization) =>
+          Container(),
     );
   }
 }

@@ -10,4 +10,7 @@ part 'normal_webservice.g.dart';
 abstract class NormalWebService extends NormalService {
   @factoryMethod
   factory NormalWebService(Dio dio) = _NormalWebService;
+
+  @GET('/example')
+  Future<void> getExample();
 }

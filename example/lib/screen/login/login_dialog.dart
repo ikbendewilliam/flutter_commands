@@ -5,20 +5,20 @@ import 'package:example/viewmodel/login/login_viewmodel.dart';
 import 'package:example/widget/provider/provider_widget.dart';
 
 @flutterRoute
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginDialog extends StatefulWidget {
+  const LoginDialog({super.key});
 
   @override
-  LoginScreenState createState() => LoginScreenState();
+  LoginDialogState createState() => LoginDialogState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class LoginDialogState extends State<LoginDialog> {
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<LoginViewModel>(
       create: () => getIt()..init(),
       childBuilderWithViewModel: (context, viewModel, theme, localization) =>
-        BaseScreen(),
+        Container(),
     );
   }
 }

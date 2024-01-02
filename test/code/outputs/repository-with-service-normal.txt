@@ -4,11 +4,11 @@ import 'package:test_project/webservice/normal/normal_service.dart';
 @lazySingleton
 abstract class NormalRepository {
   @factoryMethod
-  factory NormalRepository(NormalService normalService) = _NormalRepository;
+  factory NormalRepository(NormalService normalService ) = _NormalRepository;
 }
 
 class _NormalRepository implements NormalRepository {
   final NormalService _normalService;
 
-  _NormalRepository(this._normalService);
+  _NormalRepository(this._normalService );
 }

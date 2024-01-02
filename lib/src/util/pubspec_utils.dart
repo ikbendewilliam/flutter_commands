@@ -23,4 +23,13 @@ class PubspecUtils {
     final dynamic yaml = loadYaml(content);
     return yaml['name'] as String?;
   }
+
+  static String? getTemplatesFolder(String? pubspec) {
+    if (pubspec == null) return null;
+    final file = File(pubspec);
+    if (!file.existsSync()) return null;
+    final content = file.readAsStringSync();
+    final dynamic yaml = loadYaml(content);
+    return yaml['fgen']?['templates_folder'] as String? ?? '.fgen';
+  }
 }

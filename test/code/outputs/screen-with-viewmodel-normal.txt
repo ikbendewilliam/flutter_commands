@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get_x_navigation_generator_annotations/get_x_navigation_generator_annotations.dart';
+import 'package:flutter_navigation_generator_annotations/flutter_navigation_generator_annotations.dart';
 import 'package:test_project/di/injectable.dart';
 import 'package:test_project/viewmodel/normal/normal_viewmodel.dart';
 import 'package:test_project/widget/provider/provider_widget.dart';
 
-@getXRoute
+@flutterRoute
 class NormalScreen extends StatefulWidget {
-
   const NormalScreen({super.key});
 
   @override
@@ -18,7 +17,8 @@ class NormalScreenState extends State<NormalScreen> {
   Widget build(BuildContext context) {
     return ProviderWidget<NormalViewModel>(
       create: () => getIt()..init(),
-      childBuilderWithViewModel: (context, viewModel, theme, localization) => Container(),
+      childBuilderWithViewModel: (context, viewModel, theme, localization) =>
+          Container(),
     );
   }
 }

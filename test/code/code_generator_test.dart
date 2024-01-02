@@ -1,4 +1,5 @@
-import 'package:fgen/src/code/generate_code.dart';
+import 'package:fgen/src/code/fgen_template.dart';
+import 'package:fgen/src/code/process_yaml_template.dart';
 import 'package:test/test.dart';
 
 import 'code_helper.dart';
@@ -6,118 +7,124 @@ import 'code_helper.dart';
 void main() {
   const overwriteOutputFiles =
       false; // WARNING: This will update the output files with the new generated code.
+  final templates = <FgenTemplate>[];
 
   group('Code generator', () {
-    setUpAll(() {
+    setUpAll(() async {
+      // ignore: dead_code
       if (overwriteOutputFiles) {
         print(
             'WARNING: This will update the output files with the new generated code.');
       }
+      final templatesProcessed = ProcessYamlTemplates();
+      await templatesProcessed.processTemplates();
+      templates.addAll(templatesProcessed.templates);
     });
 
     tearDownAll(() {
+      // ignore: dead_code
       if (overwriteOutputFiles) {
         print(
             'WARNING: This will update the output files with the new generated code.');
       }
     });
 
-    test('ViewModel', () {
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.viewmodel, 'normal', 'viewmodel-normal',
+    test('ViewModel', () async {
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'viewmodel.dart', 'normal', 'viewmodel-normal',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.viewmodel, 'NormalWithCamelCase', 'viewmodel-camelcase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'viewmodel.dart', 'NormalWithCamelCase', 'viewmodel-camelcase',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.viewmodel,
-          'normal_with_snake_case', 'viewmodel-snakecase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'viewmodel.dart', 'normal_with_snake_case', 'viewmodel-snakecase',
           overwriteOutputFiles: overwriteOutputFiles);
 
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.viewmodel, 'normal', 'viewmodel-with-repository-normal',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'viewmodel.dart', 'normal', 'viewmodel-with-repository-normal',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.repository]);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.viewmodel,
+          templatesUsed: ['repository']);
+      await CodeGeneratorTestHelper.testCodeGenerator('viewmodel.dart',
           'NormalWithCamelCase', 'viewmodel-with-repository-camelcase',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.repository]);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.viewmodel,
+          templatesUsed: ['repository']);
+      await CodeGeneratorTestHelper.testCodeGenerator('viewmodel.dart',
           'normal_with_snake_case', 'viewmodel-with-repository-snakecase',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.repository]);
+          templatesUsed: ['repository']);
     });
 
-    test('Screen', () {
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.screen, 'normal', 'screen-normal',
+    test('Screen', () async {
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'screen.dart', 'normal', 'screen-normal',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.screen, 'NormalWithCamelCase', 'screen-camelcase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'screen.dart', 'NormalWithCamelCase', 'screen-camelcase',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.screen, 'normal_with_snake_case', 'screen-snakecase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'screen.dart', 'normal_with_snake_case', 'screen-snakecase',
           overwriteOutputFiles: overwriteOutputFiles);
 
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.screen, 'normal', 'screen-with-viewmodel-normal',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'screen.dart', 'normal', 'screen-with-viewmodel-normal',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.viewmodel]);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.screen,
+          templatesUsed: ['viewmodel']);
+      await CodeGeneratorTestHelper.testCodeGenerator('screen.dart',
           'NormalWithCamelCase', 'screen-with-viewmodel-camelcase',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.viewmodel]);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.screen,
+          templatesUsed: ['viewmodel']);
+      await CodeGeneratorTestHelper.testCodeGenerator('screen.dart',
           'normal_with_snake_case', 'screen-with-viewmodel-snakecase',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.viewmodel]);
+          templatesUsed: ['viewmodel']);
     });
 
-    test('Repository', () {
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.repository, 'normal', 'repository-normal',
+    test('Repository', () async {
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'repository.dart', 'normal', 'repository-normal',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.repository,
-          'NormalWithCamelCase', 'repository-camelcase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'repository.dart', 'NormalWithCamelCase', 'repository-camelcase',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.repository,
-          'normal_with_snake_case', 'repository-snakecase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'repository.dart', 'normal_with_snake_case', 'repository-snakecase',
           overwriteOutputFiles: overwriteOutputFiles);
 
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.repository, 'normal', 'repository-with-service-normal',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'repository.dart', 'normal', 'repository-with-service-normal',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.service]);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.repository,
+          templatesUsed: ['webservice']);
+      await CodeGeneratorTestHelper.testCodeGenerator('repository.dart',
           'NormalWithCamelCase', 'repository-with-service-camelcase',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.service]);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.repository,
+          templatesUsed: ['webservice']);
+      await CodeGeneratorTestHelper.testCodeGenerator('repository.dart',
           'normal_with_snake_case', 'repository-with-service-snakecase',
           overwriteOutputFiles: overwriteOutputFiles,
-          additionalTypes: [GenerateType.service]);
+          templatesUsed: ['webservice']);
     });
 
-    test('Service', () {
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.service, 'normal', 'service-normal',
+    test('Service', () async {
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'service.dart', 'normal', 'service-normal',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.service, 'NormalWithCamelCase', 'service-camelcase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'service.dart', 'NormalWithCamelCase', 'service-camelcase',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.service, 'normal_with_snake_case', 'service-snakecase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'service.dart', 'normal_with_snake_case', 'service-snakecase',
           overwriteOutputFiles: overwriteOutputFiles);
     });
 
-    test('WebService', () {
-      CodeGeneratorTestHelper.testCodeGenerator(
-          GenerateType.webService, 'normal', 'webService-normal',
+    test('WebService', () async {
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'webService.dart', 'normal', 'webService-normal',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.webService,
-          'NormalWithCamelCase', 'webService-camelcase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'webService.dart', 'NormalWithCamelCase', 'webService-camelcase',
           overwriteOutputFiles: overwriteOutputFiles);
-      CodeGeneratorTestHelper.testCodeGenerator(GenerateType.webService,
-          'normal_with_snake_case', 'webService-snakecase',
+      await CodeGeneratorTestHelper.testCodeGenerator(
+          'webService.dart', 'normal_with_snake_case', 'webService-snakecase',
           overwriteOutputFiles: overwriteOutputFiles);
     });
   });

@@ -1,0 +1,29 @@
+screen:
+  folder: screen
+  template_files:
+    - screen.dartt: _screen
+  abbr: s
+  help: Generate a screen, if viewmodel is generated, will add ProviderWidget
+
+viewmodel:
+  folder: viewmodel
+  template_files:
+    - viewmodel.dartt: _viewmodel
+  abbr: v
+  help: Generate a viewmodel
+
+repository:
+  folder: repository
+  template_files:
+    - repository.dartt: _repository
+  abbr: r
+  help: Generate a repository
+
+webservice:
+  folder: webservice
+  template_files:
+    - service.dartt: _service
+    - webservice.dartt: _webservice
+  abbr: w
+  help: Generate a service (abstract) and webservice (implementation) file
+

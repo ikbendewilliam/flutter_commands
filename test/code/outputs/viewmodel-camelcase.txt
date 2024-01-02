@@ -6,8 +6,9 @@ import 'package:test_project/navigator/main_navigator.dart';
 class NormalWithCamelCaseViewModel with ChangeNotifierEx {
   final MainNavigator _navigator;
 
-  NormalWithCamelCaseViewModel(this._navigator);
+  NormalWithCamelCaseViewModel(
+    this._navigator,
+  );
 
-  Future<void> init() async {
-  }
+  Future<void> init() async {}
 }

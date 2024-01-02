@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_navigation_generator_annotations/flutter_navigation_generator_annotations.dart';
 import 'package:example/di/injectable.dart';
-import 'package:example/viewmodel/login/login_viewmodel.dart';
+import 'package:example/viewmodel/test/test_viewmodel.dart';
 import 'package:example/widget/provider/provider_widget.dart';
 
 @flutterRoute
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class TestDialog extends StatefulWidget {
+  const TestDialog({super.key});
 
   @override
-  LoginScreenState createState() => LoginScreenState();
+  TestDialogState createState() => TestDialogState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class TestDialogState extends State<TestDialog> {
   @override
   Widget build(BuildContext context) {
-    return ProviderWidget<LoginViewModel>(
+    return ProviderWidget<TestViewModel>(
       create: () => getIt()..init(),
       childBuilderWithViewModel: (context, viewModel, theme, localization) =>
-        BaseScreen(),
+        Container(),
     );
   }
 }

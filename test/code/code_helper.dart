@@ -1,19 +1,23 @@
 import 'dart:io';
 
 import 'package:fgen/src/code/generate_code.dart';
-import 'package:fgen/src/util/string_extension.dart';
 import 'package:test/test.dart';
 
 class CodeGeneratorTestHelper {
-  static void testCodeGenerator(
-      GenerateType type, String name, String resultFileName,
-      {bool overwriteOutputFiles = false,
-      List<GenerateType> additionalTypes = const []}) {
+  static Future<void> testCodeGenerator(
+    String templateFile,
+    String name,
+    String resultFileName, {
+    bool overwriteOutputFiles = false,
+    List<String> templatesUsed = const [],
+  }) async {
     final file = File('test/code/outputs/$resultFileName.txt');
-    final actual = GenerateCode.getGenerator(type).generate(
-      name: name.toCamelCase(),
+    final actual = await CodeGenerator.generateCode(
+      name: name,
+      templateFile: templateFile,
       projectName: 'test_project',
-      allGeneratedTypes: additionalTypes.toSet()..add(type),
+      usedTemplates: templatesUsed,
+      fromDefaultTemplate: true,
     );
     if (overwriteOutputFiles) {
       file.writeAsStringSync(actual);

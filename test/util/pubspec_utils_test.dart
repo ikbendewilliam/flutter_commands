@@ -33,4 +33,19 @@ void main() {
             '${Directory.current.path}/sub/directory/testing')),
         'fgen');
   });
+
+  test('get templates folder', () {
+    expect(
+        PubspecUtils.getTemplatesFolder(
+            PubspecUtils.getPubspecFromFolder(Directory.current.path)),
+        '.fgen');
+    expect(
+        PubspecUtils.getTemplatesFolder(PubspecUtils.getPubspecFromFolder(
+            '/test_ackjkhvbafhlglkasdfkhslakdf')),
+        null);
+    expect(
+        PubspecUtils.getTemplatesFolder(PubspecUtils.getPubspecFromFolder(
+            '${Directory.current.path}/sub/directory/testing')),
+        '.fgen');
+  });
 }

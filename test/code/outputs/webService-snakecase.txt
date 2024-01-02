@@ -10,4 +10,7 @@ part 'normal_with_snake_case_webservice.g.dart';
 abstract class NormalWithSnakeCaseWebService extends NormalWithSnakeCaseService {
   @factoryMethod
   factory NormalWithSnakeCaseWebService(Dio dio) = _NormalWithSnakeCaseWebService;
+
+  @GET('/example')
+  Future<void> getExample();
 }

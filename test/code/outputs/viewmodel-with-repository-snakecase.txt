@@ -8,8 +8,10 @@ class NormalWithSnakeCaseViewModel with ChangeNotifierEx {
   final MainNavigator _navigator;
   final NormalWithSnakeCaseRepository _normalWithSnakeCaseRepository;
 
-  NormalWithSnakeCaseViewModel(this._navigator, this._normalWithSnakeCaseRepository);
+  NormalWithSnakeCaseViewModel(
+    this._navigator,
+    this._normalWithSnakeCaseRepository,
+  );
 
-  Future<void> init() async {
-  }
+  Future<void> init() async {}
 }

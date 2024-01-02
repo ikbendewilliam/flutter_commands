@@ -8,8 +8,10 @@ class NormalWithCamelCaseViewModel with ChangeNotifierEx {
   final MainNavigator _navigator;
   final NormalWithCamelCaseRepository _normalWithCamelCaseRepository;
 
-  NormalWithCamelCaseViewModel(this._navigator, this._normalWithCamelCaseRepository);
+  NormalWithCamelCaseViewModel(
+    this._navigator,
+    this._normalWithCamelCaseRepository,
+  );
 
-  Future<void> init() async {
-  }
+  Future<void> init() async {}
 }

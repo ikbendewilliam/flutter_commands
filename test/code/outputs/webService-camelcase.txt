@@ -10,4 +10,7 @@ part 'normal_with_camel_case_webservice.g.dart';
 abstract class NormalWithCamelCaseWebService extends NormalWithCamelCaseService {
   @factoryMethod
   factory NormalWithCamelCaseWebService(Dio dio) = _NormalWithCamelCaseWebService;
+
+  @GET('/example')
+  Future<void> getExample();
 }

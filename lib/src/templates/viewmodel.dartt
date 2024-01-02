@@ -1,0 +1,23 @@
+import 'package:icapps_architecture/icapps_architecture.dart';
+import 'package:injectable/injectable.dart';
+import 'package:fgen_project_name/navigator/main_navigator.dart';
+/* fgen_if templatesUsedContains(repository) */
+import 'package:fgen_project_name/repository/fgen_name/fgen_name_repository.dart';
+/* fgen_endif */
+
+@injectable
+class FgenNameViewModel with ChangeNotifierEx {
+  final MainNavigator _navigator;
+/* fgen_if templatesUsedContains(repository) */
+  final FgenNameRepository _fgenNameRepository;
+/* fgen_endif */
+
+  FgenNameViewModel(
+    this._navigator,
+/* fgen_if templatesUsedContains(repository) */
+    this._fgenNameRepository,
+/* fgen_endif */
+  );
+
+  Future<void> init() async {}
+}

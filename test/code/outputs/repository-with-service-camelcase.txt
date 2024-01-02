@@ -4,11 +4,11 @@ import 'package:test_project/webservice/normal_with_camel_case/normal_with_camel
 @lazySingleton
 abstract class NormalWithCamelCaseRepository {
   @factoryMethod
-  factory NormalWithCamelCaseRepository(NormalWithCamelCaseService normalWithCamelCaseService) = _NormalWithCamelCaseRepository;
+  factory NormalWithCamelCaseRepository(NormalWithCamelCaseService normalWithCamelCaseService ) = _NormalWithCamelCaseRepository;
 }
 
 class _NormalWithCamelCaseRepository implements NormalWithCamelCaseRepository {
   final NormalWithCamelCaseService _normalWithCamelCaseService;
 
-  _NormalWithCamelCaseRepository(this._normalWithCamelCaseService);
+  _NormalWithCamelCaseRepository(this._normalWithCamelCaseService );
 }

@@ -4,11 +4,11 @@ import 'package:test_project/webservice/normal_with_snake_case/normal_with_snake
 @lazySingleton
 abstract class NormalWithSnakeCaseRepository {
   @factoryMethod
-  factory NormalWithSnakeCaseRepository(NormalWithSnakeCaseService normalWithSnakeCaseService) = _NormalWithSnakeCaseRepository;
+  factory NormalWithSnakeCaseRepository(NormalWithSnakeCaseService normalWithSnakeCaseService ) = _NormalWithSnakeCaseRepository;
 }
 
 class _NormalWithSnakeCaseRepository implements NormalWithSnakeCaseRepository {
   final NormalWithSnakeCaseService _normalWithSnakeCaseService;
 
-  _NormalWithSnakeCaseRepository(this._normalWithSnakeCaseService);
+  _NormalWithSnakeCaseRepository(this._normalWithSnakeCaseService );
 }

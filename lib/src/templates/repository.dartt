@@ -1,0 +1,18 @@
+import 'package:injectable/injectable.dart';
+/* fgen_if templatesUsedContains(webservice) */
+import 'package:fgen_project_name/webservice/fgen_name/fgen_name_service.dart';
+/* fgen_endif */
+
+@lazySingleton
+abstract class FgenNameRepository {
+  @factoryMethod
+  factory FgenNameRepository(/* fgen_if templatesUsedContains(webservice) */ FgenNameService fgenNameService /* fgen_endif */) = _FgenNameRepository;
+}
+
+class _FgenNameRepository implements FgenNameRepository {
+/* fgen_if templatesUsedContains(webservice) */
+  final FgenNameService _fgenNameService;
+
+/* fgen_endif */
+  _FgenNameRepository(/* fgen_if templatesUsedContains(webservice) */ this._fgenNameService /* fgen_endif */);
+}

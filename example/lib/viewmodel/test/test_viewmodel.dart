@@ -1,16 +1,16 @@
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
 import 'package:example/navigator/main_navigator.dart';
-import 'package:example/repository/login/login_repository.dart';
+import 'package:example/repository/test/test_repository.dart';
 
 @injectable
-class LoginViewModel with ChangeNotifierEx {
+class TestViewModel with ChangeNotifierEx {
   final MainNavigator _navigator;
-  final LoginRepository _loginRepository;
+  final TestRepository _testRepository;
 
-  LoginViewModel(
+  TestViewModel(
     this._navigator,
-    this._loginRepository,
+    this._testRepository,
   );
 
   Future<void> init() async {}

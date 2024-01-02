@@ -1,14 +1,14 @@
-import 'package:fgen/webservice/login/login_service.dart';
 import 'package:injectable/injectable.dart';
+import 'package:example/webservice/login/login_service.dart';
 
 @lazySingleton
 abstract class LoginRepository {
   @factoryMethod
-  factory LoginRepository(LoginService loginService) = _LoginRepository;
+  factory LoginRepository(LoginService loginService ) = _LoginRepository;
 }
 
 class _LoginRepository implements LoginRepository {
   final LoginService _loginService;
 
-  _LoginRepository(this._loginService);
+  _LoginRepository(this._loginService );
 }
